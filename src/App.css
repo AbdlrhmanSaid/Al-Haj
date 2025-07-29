@@ -1,0 +1,6 @@
+.hero {
+  background-image: url("/public/alhaj-background.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
