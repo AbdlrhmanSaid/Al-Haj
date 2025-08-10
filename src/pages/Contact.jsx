@@ -54,11 +54,10 @@ const Contact = () => {
   ];
 
   return (
-    <div className="bg-[#FFF9F0] min-h-screen py-16 px-6">
+    <div className="bg-[#FFF9F0] min-h-screen">
       {/* Hero Section */}
       <motion.section
-        className="max-w-7xl mx-auto mb-20 text-center"
-        initial={{ opacity: 0, y: 50 }}
+        className="max-w-7xl min-w-full mb-20 text-center contact-hero relative flex flex-col items-center justify-center"
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
@@ -68,7 +67,7 @@ const Contact = () => {
             Contact Us
           </span>
         </h1>
-        <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+        <p className="text-xl text-white max-w-3xl mx-auto">
           نحن هنا للإجابة على جميع استفساراتك وتلقي ملاحظاتك / We're here to
           answer your questions
         </p>
@@ -76,7 +75,7 @@ const Contact = () => {
 
       {/* Contact Information */}
       <motion.section
-        className="max-w-7xl mx-auto mb-20"
+        className="max-w-7xl mx-auto mb-20 px-16"
         ref={ref}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}

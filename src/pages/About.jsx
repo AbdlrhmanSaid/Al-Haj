@@ -7,6 +7,7 @@ const About = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: false,
@@ -17,37 +18,87 @@ const About = () => {
 
   return (
     <div className="bg-[#FFF9F0] min-h-screen overflow-hidden">
-      {/* overlay */}
-      <div className="absolute inset-0 bg-black z-0"></div>
-
-      {/* Background Image */}
-      {/* Modern Hero Section */}
-      <motion.section
-        className="relative h-screen flex items-center justify-center overflow-hidden"
-        style={{ y }}
-      >
-        {/* Improved Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30 z-0"></div>
-
-        <img
-          src="/alhaj-background.png"
-          alt="مزارع تمور الورود"
-          className="absolute w-full h-full object-cover z-0"
-        />
-
-        <motion.div
-          className="relative z-10 text-center px-6"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+      {/* Modern Hero Section with Video Background */}
+      <div className="relative h-screen w-full overflow-hidden">
+        {/* Background Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute top-0 left-0 w-full h-full object-cover z-0"
         >
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+          <source src="/video2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/30 z-0"></div>
+
+        {/* Floating particles effect */}
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-[#D3B159] z-0"
+            style={{
+              width: Math.random() * 10 + 5 + "px",
+              height: Math.random() * 10 + 5 + "px",
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              opacity: Math.random() * 0.6 + 0.2,
+            }}
+            animate={{
+              y: [0, (Math.random() - 0.5) * 100],
+              x: [0, (Math.random() - 0.5) * 50],
+              opacity: [0.3, 0.8, 0.3],
+            }}
+            transition={{
+              duration: Math.random() * 15 + 10,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+          />
+        ))}
+
+        {/* Main content with animation */}
+        <motion.div
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-10 w-full px-4"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            transition: {
+              type: "spring",
+              stiffness: 100,
+              damping: 10,
+              delay: 0.3,
+            },
+          }}
+        >
+          <motion.h1
+            className="text-5xl md:text-7xl font-bold text-white mb-4"
+            initial={{ y: -50 }}
+            animate={{ y: 0 }}
+            transition={{ delay: 0.5 }}
+          >
             <span className="block text-[#F8F4E8]">تمور الورود</span>
-            <span className="text-3xl md:text-5xl font-light text-[#D3B159]">
+            <span className="text-3xl md:text-5xl font-light text-[#D3B159] mt-2">
               Alworood Dates
             </span>
-          </h1>
+          </motion.h1>
+
+          <motion.p
+            className="mt-4 text-white text-xl md:text-2xl font-light tracking-wider max-w-2xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.0, duration: 0.5 }}
+          >
+            Where heritage meets innovation
+          </motion.p>
+
           <motion.div
+            className="mt-16"
             animate={{
               y: [0, 15, 0],
               opacity: [0.6, 1, 0.6],
@@ -56,6 +107,7 @@ const About = () => {
               duration: 2,
               repeat: Infinity,
               ease: "easeInOut",
+              delay: 1.2,
             }}
           >
             <svg
@@ -73,7 +125,7 @@ const About = () => {
             </svg>
           </motion.div>
         </motion.div>
-      </motion.section>
+      </div>
 
       {/* About Content */}
       <div className="max-w-7xl mx-auto px-6 py-20 relative" ref={ref}>
@@ -109,7 +161,7 @@ const About = () => {
                 شركة تمور الورود
               </h2>
               <p
-                className="text-xl text-gray-7S00 mb-6 leading-relaxed text-right"
+                className="text-xl text-gray-700 mb-6 leading-relaxed text-right"
                 dir="rtl"
               >
                 تمور الورود هي شركة فلسطينية رائدة في زراعة وإنتاج التمور، تتخذ
@@ -288,7 +340,7 @@ const About = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Link to="/contact">تواصل معنا | Contact Us </Link>
+            <Link to="/contact">تواصل معنا | Contact Us</Link>
           </motion.button>
         </motion.section>
       </div>

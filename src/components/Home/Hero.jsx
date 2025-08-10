@@ -8,23 +8,28 @@ const Hero = () => {
   });
 
   return (
-    <div
-      className="relative hero h-screen w-full overflow-hidden"
-      style={{
-        backgroundImage: "url('/alhaj-background.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-      }}
-    >
-      {/* Overlay for better text visibility */}
-      <div className="absolute inset-0 bg-opacity-20"></div>
+    <div className="relative hero h-screen w-full overflow-hidden">
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source src="/video1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Dark Overlay for better text visibility */}
+      <div className="absolute inset-0 bg-[#00000082] bg-opacity-30 z-0"></div>
 
       {/* Floating particles effect */}
       {[...Array(15)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute rounded-full bg-[#D3B159] opacity-60"
+          className="absolute rounded-full bg-[#D3B159] opacity-60 z-0"
           style={{
             width: Math.random() * 10 + 5 + "px",
             height: Math.random() * 10 + 5 + "px",
@@ -67,7 +72,7 @@ const Hero = () => {
         <motion.img
           src="/al-haLogo.svg"
           alt="Al-haj Logo"
-          className=" max-w-md mx-auto"
+          className="max-w-md mx-auto"
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300 }}
         />

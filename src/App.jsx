@@ -10,12 +10,12 @@ function App() {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className="">
+    <>
       <Hero />
       <About />
       <FlowerImg />
       <AboutAr />
-    </div>
+    </>
   );
 }
 
