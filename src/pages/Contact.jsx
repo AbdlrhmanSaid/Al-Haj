@@ -20,9 +20,6 @@ const Contact = () => {
       title: "العنوان / Address",
       content: (
         <>
-          <p dir="rtl" className="mb-1">
-            1900 N 5th St, Philadelphia, PA 19122, United States
-          </p>
           <p className="mt-2">
             1900 N 5th St, Philadelphia, PA 19122, United States
           </p>
