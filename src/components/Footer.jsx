@@ -49,7 +49,7 @@ const Footer = () => {
           <p className="text-sm text-[#D3B159]">
             Ramallah, Palestinian Territory, Alirsal Street
             <br />
-            18 Buliding, 1th Floor, Tel: +972 2 2986875
+            18 Buliding, 1th Floor, Tel: +1 (215) 416-0563
           </p>
         </motion.div>
 
@@ -66,7 +66,7 @@ const Footer = () => {
           <p className="text-[#D3B159]">
             رام الله، الأراضي الفلسطينية، شارع الإرسال
             <br />
-            مبنى 18، الطابق الأول، هاتــف: +972 2 2986875
+            مبنى 18، الطابق الأول، هاتــف: +1 (215) 416-0563
           </p>
         </motion.div>
       </div>
