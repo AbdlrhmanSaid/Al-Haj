@@ -35,7 +35,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16 md:h-20">
           <Link to="/" className="flex items-center group">
             <motion.h1
-              className="text-2xl font-bold text-[#2C2C2C] group-hover:text-white transition-colors duration-500"
+              className="text-2xl font-bold text-white transition-colors duration-500"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
